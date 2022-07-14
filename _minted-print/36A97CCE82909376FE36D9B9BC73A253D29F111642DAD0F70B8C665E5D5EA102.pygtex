@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct} \PYG{n}{Point} \PYG{p}{\PYGZob{}} \PYG{k+kt}{double} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{;} \PYG{p}{\PYGZcb{};}
+\PYG{k}{struct} \PYG{n}{PointCmp} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{bool} \PYG{k}{operator}\PYG{p}{()(}\PYG{k}{const} \PYG{n}{Point}\PYG{o}{\PYGZam{}} \PYG{n}{lhs}\PYG{p}{,} \PYG{k}{const} \PYG{n}{Point}\PYG{o}{\PYGZam{}} \PYG{n}{rhs}\PYG{p}{)}\PYG{k}{const}\PYG{p}{\PYGZob{}} 
+        \PYG{k}{return} \PYG{n}{std}\PYG{o}{::}\PYG{n}{hypot}\PYG{p}{(}\PYG{n}{lhs}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,} \PYG{n}{lhs}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{std}\PYG{o}{::}\PYG{n}{hypot}\PYG{p}{(}\PYG{n}{rhs}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,} \PYG{n}{rhs}\PYG{p}{.}\PYG{n}{y}\PYG{p}{);} 
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\end{Verbatim}

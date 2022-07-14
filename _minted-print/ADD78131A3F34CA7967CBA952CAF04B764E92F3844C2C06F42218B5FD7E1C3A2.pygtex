@@ -1,0 +1,43 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{get\PYGZus{}root}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{fa}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{sz}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{mxs}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{line} \PYG{n}{e}\PYG{o}{=}\PYG{n}{edge}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{o}{==}\PYG{n}{fa}\PYG{o}{||}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{])} \PYG{k}{continue}\PYG{p}{;}
+        \PYG{n}{get\PYGZus{}root}\PYG{p}{(}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{,}\PYG{n}{x}\PYG{p}{);}
+        \PYG{n}{sz}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{+=}\PYG{n}{sz}\PYG{p}{[}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{];}
+        \PYG{n}{mxs}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{mxs}\PYG{p}{[}\PYG{n}{x}\PYG{p}{],}\PYG{n}{sz}\PYG{p}{[}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{mxs}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{mxs}\PYG{p}{[}\PYG{n}{x}\PYG{p}{],}\PYG{n}{sum}\PYG{o}{\PYGZhy{}}\PYG{n}{mxs}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{mxs}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{n}{mxs}\PYG{p}{[}\PYG{n}{root}\PYG{p}{])\PYGZob{}}
+        \PYG{n}{root}\PYG{o}{=}\PYG{n}{x}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void} \PYG{n+nf}{get\PYGZus{}data}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{fa}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{dis}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{sta}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]}\PYG{o}{=}\PYG{n}{dis}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{line} \PYG{n}{e}\PYG{o}{=}\PYG{n}{edge}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{o}{==}\PYG{n}{fa}\PYG{o}{||}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{])} \PYG{k}{continue}\PYG{p}{;}
+        \PYG{n}{get\PYGZus{}data}\PYG{p}{(}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{,}\PYG{n}{x}\PYG{p}{,}\PYG{n}{dis}\PYG{o}{+}\PYG{n}{e}\PYG{p}{.}\PYG{n}{val}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void} \PYG{n+nf}{calc}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{flag}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{dis}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{top}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{get\PYGZus{}data}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{dis}\PYG{p}{);}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{top}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{top}\PYG{p}{;}\PYG{o}{++}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{+}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{10000000}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+            \PYG{n}{ans}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{+}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{+=}\PYG{n}{flag}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void} \PYG{n+nf}{solve}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{calc}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{);} \PYG{n}{vis}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{line} \PYG{n}{e}\PYG{o}{=}\PYG{n}{edge}\PYG{p}{[}\PYG{n}{G}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{])} \PYG{k}{continue}\PYG{p}{;}
+        \PYG{n}{calc}\PYG{p}{(}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{e}\PYG{p}{.}\PYG{n}{val}\PYG{p}{);}
+        \PYG{n}{root}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{sum}\PYG{o}{=}\PYG{n}{sz}\PYG{p}{[}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{];}
+        \PYG{n}{get\PYGZus{}root}\PYG{p}{(}\PYG{n}{e}\PYG{p}{.}\PYG{n}{to}\PYG{p}{,}\PYG{n}{x}\PYG{p}{);} \PYG{n}{solve}\PYG{p}{(}\PYG{n}{root}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

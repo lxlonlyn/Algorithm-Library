@@ -1,0 +1,45 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{namespace} \PYG{n}{cipolla}\PYG{p}{\PYGZob{}}
+    \PYG{n}{ll} \PYG{n}{I2}\PYG{p}{;}
+    \PYG{k}{struct} \PYG{n}{cp}\PYG{p}{\PYGZob{}}
+        \PYG{n}{ll} \PYG{n}{rel}\PYG{p}{,}\PYG{n}{img}\PYG{p}{;}
+        \PYG{n}{cp}\PYG{p}{(}\PYG{n}{ll} \PYG{n}{\PYGZus{}r}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{ll} \PYG{n}{\PYGZus{}i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{:}\PYG{n}{rel}\PYG{p}{(}\PYG{n}{\PYGZus{}r}\PYG{p}{),}\PYG{n}{img}\PYG{p}{(}\PYG{n}{\PYGZus{}i}\PYG{p}{)\PYGZob{}\PYGZcb{}}
+        \PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{==} \PYG{p}{(}\PYG{n}{cp} \PYG{n}{\PYGZus{}a}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{return} \PYG{n}{rel}\PYG{o}{==}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{rel}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{img}\PYG{o}{==}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{img}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{cp} \PYG{k}{operator} \PYG{o}{*} \PYG{p}{(}\PYG{n}{cp} \PYG{n}{\PYGZus{}a}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{return} \PYG{n}{cp}\PYG{p}{((}\PYG{n}{rel}\PYG{o}{*}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{rel}\PYG{o}{+}\PYG{n}{I2}\PYG{o}{*}\PYG{n}{img}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{o}{*}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{img}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{,}
+                      \PYG{p}{(}\PYG{n}{img}\PYG{o}{*}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{rel}\PYG{o}{+}\PYG{n}{rel}\PYG{o}{*}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{img}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{};}
+    \PYG{n}{cp} \PYG{n+nf}{ksm}\PYG{p}{(}\PYG{n}{cp} \PYG{n}{x}\PYG{p}{,}\PYG{n}{ll} \PYG{n}{k}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{cp} \PYG{n}{res}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{);}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{k}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{k}\PYG{o}{\PYGZam{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{res}\PYG{o}{=}\PYG{n}{res}\PYG{o}{*}\PYG{n}{x}\PYG{p}{;}
+            \PYG{n}{x}\PYG{o}{=}\PYG{n}{x}\PYG{o}{*}\PYG{n}{x}\PYG{p}{;} \PYG{n}{k}\PYG{o}{\PYGZgt{}\PYGZgt{}=}\PYG{l+m+mi}{1}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{return} \PYG{n}{res}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{ll} \PYG{n+nf}{ksm}\PYG{p}{(}\PYG{n}{ll} \PYG{n}{x}\PYG{p}{,}\PYG{n}{ll} \PYG{n}{k}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{ll} \PYG{n}{res}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{k}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{k}\PYG{o}{\PYGZam{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{res}\PYG{o}{=}\PYG{n}{res}\PYG{o}{*}\PYG{n}{x}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;}
+            \PYG{n}{x}\PYG{o}{=}\PYG{n}{x}\PYG{o}{*}\PYG{n}{x}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;} \PYG{n}{k}\PYG{o}{\PYGZgt{}\PYGZgt{}=}\PYG{l+m+mi}{1}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{return} \PYG{n}{res}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k+kt}{bool} \PYG{n+nf}{check}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{ksm}\PYG{p}{(}\PYG{n}{cp}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{),(}\PYG{n}{mod}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{==}\PYG{n}{cp}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{ll} \PYG{n+nf}{solve}\PYG{p}{(}\PYG{n}{ll} \PYG{n}{n}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{n}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{//special judge 0}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{ksm}\PYG{p}{(}\PYG{n}{n}\PYG{p}{,(}\PYG{n}{mod}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{==}\PYG{n}{mod}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{c+c1}{//no answer}
+        \PYG{n}{ll} \PYG{n}{tmp}\PYG{o}{=}\PYG{n}{rand}\PYG{p}{()}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;}
+        \PYG{k}{while} \PYG{p}{(}\PYG{o}{!}\PYG{n}{tmp}\PYG{o}{||}\PYG{n}{check}\PYG{p}{((}\PYG{n}{tmp}\PYG{o}{*}\PYG{n}{tmp}\PYG{o}{\PYGZhy{}}\PYG{n}{n}\PYG{o}{+}\PYG{n}{mod}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{))\PYGZob{}}
+            \PYG{n}{tmp}\PYG{o}{=}\PYG{n}{rand}\PYG{p}{()}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{I2}\PYG{o}{=}\PYG{p}{(}\PYG{n}{tmp}\PYG{o}{*}\PYG{n}{tmp}\PYG{o}{\PYGZhy{}}\PYG{n}{n}\PYG{o}{+}\PYG{n}{mod}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;}
+        \PYG{k}{return} \PYG{n}{ksm}\PYG{p}{(}\PYG{n}{cp}\PYG{p}{(}\PYG{n}{tmp}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{),(}\PYG{n}{mod}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{).}\PYG{n}{rel}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

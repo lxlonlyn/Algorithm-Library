@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n}{f}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{][}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{n}{memset}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,}\PYG{l+m+mh}{0x3f}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{f}\PYG{p}{));}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)} \PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{c+c1}{//按需}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{k}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]}\PYG{o}{=}\PYG{n}{min}\PYG{p}{(}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{],}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]}\PYG{o}{+}\PYG{n}{f}\PYG{p}{[}\PYG{n}{k}\PYG{p}{][}\PYG{n}{j}\PYG{p}{]);}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

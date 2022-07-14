@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{ll} \PYG{n+nf}{liner}\PYG{p}{(}\PYG{n}{ll} \PYG{n}{a}\PYG{p}{,}\PYG{n}{ll} \PYG{n}{b}\PYG{p}{,}\PYG{n}{ll} \PYG{n}{c}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//ax=c(mod b)}
+    \PYG{n}{ll} \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{;}
+    \PYG{n}{ll} \PYG{n}{d}\PYG{o}{=}\PYG{n}{exgcd}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{c}\PYG{o}{\PYGZpc{}}\PYG{n}{d}\PYG{p}{)} \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{c+c1}{//there is no answer}
+    \PYG{n}{x}\PYG{o}{*=}\PYG{n}{c}\PYG{o}{/}\PYG{n}{d}\PYG{p}{;} \PYG{n}{ll} \PYG{n}{t}\PYG{o}{=}\PYG{n}{b}\PYG{o}{/}\PYG{n}{d}\PYG{p}{;}
+    \PYG{k}{return} \PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZpc{}}\PYG{n}{t}\PYG{o}{+}\PYG{n}{t}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{t}\PYG{p}{;} \PYG{c+c1}{//the minest positive answer}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

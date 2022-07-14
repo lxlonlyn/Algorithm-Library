@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{ll} \PYG{n}{a}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{m}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{n}{ll} \PYG{n+nf}{crt}\PYG{p}{()\PYGZob{}} \PYG{c+c1}{//x=a[](mod m[])}
+    \PYG{n}{ll} \PYG{n}{ans}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{M}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)} \PYG{n}{M}\PYG{o}{*=}\PYG{n}{m}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{ll} \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{,}\PYG{n}{Mi}\PYG{o}{=}\PYG{n}{M}\PYG{o}{/}\PYG{n}{m}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+        \PYG{n}{exgcd}\PYG{p}{(}\PYG{n}{Mi}\PYG{p}{,}\PYG{n}{m}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{);} \PYG{c+c1}{//attention this is Mi not M}
+        \PYG{n}{ans}\PYG{o}{=}\PYG{p}{(}\PYG{n}{ans}\PYG{o}{+}\PYG{n}{Mi}\PYG{o}{*}\PYG{n}{x}\PYG{o}{*}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{o}{\PYGZpc{}}\PYG{n}{M}\PYG{p}{;}
+        \PYG{c+c1}{//ans=(ans+step\PYGZus{}mul(Mi*x,a[i],M))\PYGZpc{}M;}
+        \PYG{c+c1}{//this is safe,but it\PYGZsq{}s very slow}
+    \PYG{p}{\PYGZcb{}}   
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{ans}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{n}{ans}\PYG{o}{+=}\PYG{n}{M}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} 
+\end{Verbatim}

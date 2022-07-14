@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n}{low}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{],} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{],} \PYG{n}{iscut}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{],} \PYG{n}{dfs\PYGZus{}clock}\PYG{p}{;}
+\PYG{k+kt}{bool} \PYG{n}{isbridge}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{];}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{G}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{];}
+\PYG{k+kt}{int} \PYG{n}{cnt\PYGZus{}bridge}\PYG{p}{;}
+\PYG{k+kt}{int} \PYG{n}{father}\PYG{p}{[}\PYG{n}{MAXN}\PYG{p}{];}
+\PYG{k+kt}{void} \PYG{n+nf}{tarjan}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{,} \PYG{k+kt}{int} \PYG{n}{fa}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{n}{father}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fa}\PYG{p}{;}
+  \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{o}{++}\PYG{n}{dfs\PYGZus{}clock}\PYG{p}{;}
+  \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{G}\PYG{p}{[}\PYG{n}{u}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{v} \PYG{o}{=} \PYG{n}{G}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{n}{tarjan}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,} \PYG{n}{u}\PYG{p}{);}
+      \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+      \PYG{k}{if} \PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+        \PYG{n}{isbridge}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{n+nb}{true}\PYG{p}{;}
+        \PYG{o}{++}\PYG{n}{cnt\PYGZus{}bridge}\PYG{p}{;}
+      \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}} \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{v} \PYG{o}{!=} \PYG{n}{fa}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+      \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

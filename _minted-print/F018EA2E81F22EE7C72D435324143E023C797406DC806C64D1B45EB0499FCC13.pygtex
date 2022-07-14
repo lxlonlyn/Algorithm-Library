@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//最长上升子序列（严格）}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{cnt}\PYG{o}{||}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{cnt}\PYG{p}{])\PYGZob{}}
+        \PYG{n}{d}\PYG{p}{[}\PYG{o}{++}\PYG{n}{cnt}\PYG{p}{]}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{p}\PYG{o}{=}\PYG{n}{lower\PYGZus{}bound}\PYG{p}{(}\PYG{n}{d}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{d}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{cnt}\PYG{p}{,}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{;}
+        \PYG{n}{d}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//最长不下降子序列}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{cnt}\PYG{o}{||}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZgt{}=}\PYG{n}{d}\PYG{p}{[}\PYG{n}{cnt}\PYG{p}{])\PYGZob{}}
+        \PYG{n}{d}\PYG{p}{[}\PYG{o}{++}\PYG{n}{cnt}\PYG{p}{]}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{p}\PYG{o}{=}\PYG{n}{upper\PYGZus{}bound}\PYG{p}{(}\PYG{n}{d}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{d}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{cnt}\PYG{p}{,}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{;}
+        \PYG{n}{d}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//最长不上升子序列}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{cnt}\PYG{o}{||}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}=}\PYG{n}{d}\PYG{p}{[}\PYG{n}{cnt}\PYG{p}{])\PYGZob{}}
+        \PYG{n}{d}\PYG{p}{[}\PYG{o}{++}\PYG{n}{cnt}\PYG{p}{]}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{p}\PYG{o}{=}\PYG{n}{upper\PYGZus{}bound}\PYG{p}{(}\PYG{n}{d}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{d}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{cnt}\PYG{p}{,}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{n}{greater}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{())}\PYG{o}{\PYGZhy{}}\PYG{n}{d}\PYG{p}{;}
+        \PYG{n}{d}\PYG{p}{[}\PYG{n}{p}\PYG{p}{]}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

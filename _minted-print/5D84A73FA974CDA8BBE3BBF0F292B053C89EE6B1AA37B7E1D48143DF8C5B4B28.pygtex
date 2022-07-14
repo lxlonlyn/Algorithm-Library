@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{p}{(}\PYG{n}{ll} \PYG{n}{l}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{l}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{l}\PYG{o}{=}\PYG{n}{r}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{r}\PYG{o}{=}\PYG{n}{n}\PYG{o}{/}\PYG{p}{(}\PYG{n}{n}\PYG{o}{/}\PYG{n}{l}\PYG{p}{);}
+    \PYG{n}{ans}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{o}{*}\PYG{p}{(}\PYG{n}{r}\PYG{o}{\PYGZhy{}}\PYG{n}{l}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{n}\PYG{o}{/}\PYG{n}{l}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{linear\PYGZus{}basis}\PYG{p}{()\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//every number}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{60}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{j}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//every bit}
+            \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{j}\PYG{p}{))} \PYG{k}{continue}\PYG{p}{;}
+            \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{d}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])\PYGZob{}}
+                \PYG{n}{d}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];} \PYG{k}{break}\PYG{p}{;} \PYG{c+c1}{//break!}
+            \PYG{p}{\PYGZcb{}}
+            \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZca{}=}\PYG{n}{d}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];}
+        \PYG{p}{\PYGZcb{}} 
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{//example:find the maxnum xor sum}
+\PYG{n}{ll} \PYG{n}{ans}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{60}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{ans}\PYG{o}{\PYGZca{}}\PYG{n}{d}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{n}{ans}\PYG{p}{)} \PYG{n}{ans}\PYG{o}{\PYGZca{}=}\PYG{n}{d}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{//example:find out how many different numbers can be xor to}
+\PYG{n}{ll} \PYG{n}{ans}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{l+m+mi}{60}\PYG{p}{;}\PYG{o}{++}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{d}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{n}{ans}\PYG{o}{\PYGZlt{}\PYGZlt{}=}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{n}{ans}\PYG{o}{\PYGZpc{}=}\PYG{n}{mod}\PYG{p}{;} \PYG{c+c1}{//if needed}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{i}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{len}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{len}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{len}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{n}{i}\PYG{o}{+}\PYG{n}{len}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{o}{=}\PYG{n}{len}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{k}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{k}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+                \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{tmp}\PYG{o}{=}\PYG{n}{l}\PYG{p}{;}\PYG{n}{tmp}\PYG{o}{\PYGZlt{}=}\PYG{n}{r}\PYG{p}{;}\PYG{o}{++}\PYG{n}{tmp}\PYG{p}{)\PYGZob{}}
+                    \PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]}\PYG{o}{=}\PYG{n}{min}\PYG{p}{(}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{p}{],}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{][}\PYG{n}{tmp}\PYG{p}{]}\PYG{o}{+}\PYG{n}{sum}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{sum}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]);}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+                \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{tmp}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}\PYG{n}{tmp}\PYG{o}{\PYGZlt{}}\PYG{n}{j}\PYG{p}{;}\PYG{o}{++}\PYG{n}{tmp}\PYG{p}{)\PYGZob{}}
+                    \PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]}\PYG{o}{=}\PYG{n}{min}\PYG{p}{(}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{p}{],}\PYG{n}{f}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{tmp}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{+}\PYG{n}{f}\PYG{p}{[}\PYG{n}{tmp}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]);}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

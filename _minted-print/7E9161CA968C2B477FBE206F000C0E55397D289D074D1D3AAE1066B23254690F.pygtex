@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{getans}\PYG{p}{()\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{sz}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{ans}\PYG{p}{[}\PYG{n}{st}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{mxlen}\PYG{p}{]}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{st}\PYG{p}{[}\PYG{n}{i}\PYG{p}{].}\PYG{n}{mxlen}\PYG{p}{],}\PYG{n}{cnt}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{n}{len}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{ans}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

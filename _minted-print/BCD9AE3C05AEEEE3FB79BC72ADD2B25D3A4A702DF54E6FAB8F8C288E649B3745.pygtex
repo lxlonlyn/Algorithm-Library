@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{low}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{dfncnt}\PYG{p}{;} 
+\PYG{k+kt}{int} \PYG{n}{sta}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{tp}\PYG{p}{;} \PYG{c+c1}{//stack}
+\PYG{k+kt}{int} \PYG{n}{scc}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{scc\PYGZus{}tot}\PYG{p}{;} 
+\PYG{c+c1}{//scc[]:every point belongs to which scc }
+\PYG{k+kt}{int} \PYG{n}{siz}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];} \PYG{c+c1}{//the siz of each scc}
+\PYG{k+kt}{int} \PYG{n}{in\PYGZus{}stack}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{k+kt}{void} \PYG{n+nf}{tarjan}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{dfn}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{=}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{=++}\PYG{n}{dfncnt}\PYG{p}{;} 
+    \PYG{n}{sta}\PYG{p}{[}\PYG{o}{++}\PYG{n}{tp}\PYG{p}{]}\PYG{o}{=}\PYG{n}{u}\PYG{p}{;} \PYG{n}{in\PYGZus{}stack}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{G}\PYG{p}{[}\PYG{n}{u}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{v}\PYG{o}{=}\PYG{n}{G}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])\PYGZob{}}
+            \PYG{n}{tarjan}\PYG{p}{(}\PYG{n}{v}\PYG{p}{);} \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{=}\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],}\PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+        \PYG{p}{\PYGZcb{}}\PYG{k}{else}\PYG{p}{\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{in\PYGZus{}stack}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])} \PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{=}\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{],}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{==}\PYG{n}{low}\PYG{p}{[}\PYG{n}{u}\PYG{p}{])\PYGZob{}}
+        \PYG{o}{++}\PYG{n}{scc\PYGZus{}tot}\PYG{p}{;}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{tp}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{u}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{scc}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{tp}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{scc\PYGZus{}tot}\PYG{p}{;} \PYG{o}{++}\PYG{n}{siz}\PYG{p}{[}\PYG{n}{scc\PYGZus{}tot}\PYG{p}{];} 
+            \PYG{n}{in\PYGZus{}stack}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{tp}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{]]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{scc}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{tp}\PYG{p}{]]}\PYG{o}{=}\PYG{n}{scc\PYGZus{}tot}\PYG{p}{;} \PYG{o}{++}\PYG{n}{siz}\PYG{p}{[}\PYG{n}{scc\PYGZus{}tot}\PYG{p}{];} 
+        \PYG{n}{in\PYGZus{}stack}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{tp}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{]]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{//to be used}
+\PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])} \PYG{n}{tarjan}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{char} \PYG{n}{t}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{s}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];} \PYG{c+c1}{//find s in t }
+\PYG{k+kt}{int} \PYG{n}{slen}\PYG{p}{,}\PYG{n}{tlen}\PYG{p}{;} \PYG{c+c1}{//don\PYGZsq{}t use strlen in for()}
+\PYG{k+kt}{int} \PYG{n}{pi}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];} \PYG{c+c1}{//pi[i]=next[i]}
+\PYG{k+kt}{void} \PYG{n+nf}{prefix\PYGZus{}function}\PYG{p}{()\PYGZob{}}
+    \PYG{n}{pi}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{slen}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{n}{pi}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{];}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{j}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{s}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{s}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{n}{j}\PYG{o}{=}\PYG{n}{pi}\PYG{p}{[}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{s}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{==}\PYG{n}{s}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{n}{j}\PYG{o}{++}\PYG{p}{;}
+        \PYG{n}{pi}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{j}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}} 
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{ans}\PYG{p}{;}
+\PYG{k+kt}{void} \PYG{n+nf}{kmp}\PYG{p}{()\PYGZob{}}
+    \PYG{n}{prefix\PYGZus{}function}\PYG{p}{();}
+    \PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{tlen}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{j}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{!=}\PYG{n}{s}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{n}{j}\PYG{o}{=}\PYG{n}{pi}\PYG{p}{[}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{];}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{t}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{==}\PYG{n}{s}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{o}{++}\PYG{n}{j}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{j}\PYG{o}{==}\PYG{n}{slen}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{ans}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{n}{slen}\PYG{o}{+}\PYG{l+m+mi}{2}\PYG{p}{);}
+            \PYG{n}{j}\PYG{o}{=}\PYG{n}{pi}\PYG{p}{[}\PYG{n}{j}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{];}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

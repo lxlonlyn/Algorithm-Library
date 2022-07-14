@@ -1,0 +1,43 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct} \PYG{n}{vec}\PYG{p}{\PYGZob{}}
+    \PYG{c+c1}{//vector,also the point\PYGZsq{}s position}
+    \PYG{k+kt}{double} \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{;}
+    \PYG{k+kt}{bool} \PYG{k}{operator} \PYG{o}{\PYGZlt{}}\PYG{p}{(}\PYG{k}{const} \PYG{n}{vec} \PYG{o}{\PYGZam{}}\PYG{n}{\PYGZus{}p}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{return} \PYG{p}{(}\PYG{n}{x}\PYG{o}{==}\PYG{n}{\PYGZus{}p}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{o}{?}\PYG{n}{y}\PYG{o}{\PYGZlt{}}\PYG{n}{\PYGZus{}p}\PYG{p}{.}\PYG{n+nl}{y}\PYG{p}{:}\PYG{n}{x}\PYG{o}{\PYGZlt{}}\PYG{n}{\PYGZus{}p}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{vec} \PYG{k}{operator} \PYG{o}{+}\PYG{p}{(}\PYG{k}{const} \PYG{n}{vec} \PYG{o}{\PYGZam{}}\PYG{n}{\PYGZus{}p}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{return} \PYG{p}{(}\PYG{n}{vec}\PYG{p}{)\PYGZob{}}\PYG{n}{x}\PYG{o}{+}\PYG{n}{\PYGZus{}p}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{+}\PYG{n}{\PYGZus{}p}\PYG{p}{.}\PYG{n}{y}\PYG{p}{\PYGZcb{};}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{vec} \PYG{k}{operator} \PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{k}{const} \PYG{n}{vec} \PYG{o}{\PYGZam{}}\PYG{n}{\PYGZus{}p}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{return} \PYG{p}{(}\PYG{n}{vec}\PYG{p}{)\PYGZob{}}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{n}{\PYGZus{}p}\PYG{p}{.}\PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{n}{\PYGZus{}p}\PYG{p}{.}\PYG{n}{y}\PYG{p}{\PYGZcb{};}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+\PYG{k+kt}{double} \PYG{n+nf}{cross}\PYG{p}{(}\PYG{n}{vec} \PYG{n}{\PYGZus{}a}\PYG{p}{,}\PYG{n}{vec} \PYG{n}{\PYGZus{}b}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{x}\PYG{o}{*}\PYG{n}{\PYGZus{}b}\PYG{p}{.}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{y}\PYG{o}{*}\PYG{n}{\PYGZus{}b}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{int} \PYG{n}{sta}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{],}\PYG{n}{top}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{c+c1}{//instack=on convex hull}
+\PYG{k+kt}{int} \PYG{n}{used}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];} \PYG{c+c1}{//if it is on convex hull}
+\PYG{k+kt}{void} \PYG{n+nf}{Andrew}\PYG{p}{()\PYGZob{}}
+    \PYG{n}{sort}\PYG{p}{(}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{p}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{+}\PYG{n}{n}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZlt{}=}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{k}{return}\PYG{p}{;} \PYG{c+c1}{//no answer}
+    \PYG{n}{sta}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{top}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{2}\PYG{o}{\PYGZam{}\PYGZam{}}
+               \PYG{n}{cross}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]]}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]],}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]])}\PYG{o}{\PYGZlt{}=}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{used}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{]]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{used}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{sta}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k+kt}{int} \PYG{n}{tmp}\PYG{o}{=}\PYG{n}{top}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{used}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])} \PYG{k}{continue}\PYG{p}{;}
+        \PYG{c+c1}{//don\PYGZsq{}t have influence on down convex hull}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{top}\PYG{o}{\PYGZgt{}}\PYG{n}{tmp}\PYG{o}{\PYGZam{}\PYGZam{}}
+               \PYG{n}{cross}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]]}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]],}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]])}\PYG{o}{\PYGZlt{}=}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{used}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{p}{]]}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{used}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{sta}\PYG{p}{[}\PYG{o}{++}\PYG{n}{top}\PYG{p}{]}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

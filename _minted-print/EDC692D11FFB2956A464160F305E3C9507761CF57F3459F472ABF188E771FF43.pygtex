@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{double} \PYG{n+nf}{dis}\PYG{p}{(}\PYG{n}{vec} \PYG{n}{\PYGZus{}a}\PYG{p}{,}\PYG{n}{vec} \PYG{n}{\PYGZus{}b}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{sqrt}\PYG{p}{((}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{n}{\PYGZus{}b}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{x}\PYG{o}{\PYGZhy{}}\PYG{n}{\PYGZus{}b}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)}
+               \PYG{o}{+}\PYG{p}{(}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{n}{\PYGZus{}b}\PYG{p}{.}\PYG{n}{y}\PYG{p}{)}\PYG{o}{*}\PYG{p}{(}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{y}\PYG{o}{\PYGZhy{}}\PYG{n}{\PYGZus{}b}\PYG{p}{.}\PYG{n}{y}\PYG{p}{));}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{double} \PYG{n+nf}{getdiam}\PYG{p}{()\PYGZob{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{n}\PYG{o}{\PYGZlt{}=}\PYG{l+m+mi}{2}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{dis}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{],}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k+kt}{double} \PYG{n}{res}\PYG{o}{=}\PYG{l+m+mf}{0.0}\PYG{p}{;}
+    \PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{top}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{while} \PYG{p}{(}\PYG{n}{cross}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]]}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]],}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]])}
+              \PYG{o}{\PYGZlt{}}\PYG{n}{cross}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]]}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]],}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{j}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]]}\PYG{o}{\PYGZhy{}}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]]))\PYGZob{}}
+            \PYG{o}{++}\PYG{n}{j}\PYG{p}{;} \PYG{k}{if} \PYG{p}{(}\PYG{n}{j}\PYG{o}{\PYGZgt{}}\PYG{n}{top}\PYG{p}{)} \PYG{n}{j}\PYG{o}{\PYGZhy{}=}\PYG{n}{top}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{res}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{res}\PYG{p}{,}\PYG{n}{dis}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]],}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]));}
+        \PYG{n}{res}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{res}\PYG{p}{,}\PYG{n}{dis}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]],}\PYG{n}{p}\PYG{p}{[}\PYG{n}{sta}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]]));}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{res}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

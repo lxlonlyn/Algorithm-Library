@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// example of map}
+\PYG{k}{struct} \PYG{n+nc}{node} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} \PYG{n}{cur}\PYG{p}{;}
+\PYG{k}{struct} \PYG{n+nc}{cmp} \PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{bool} \PYG{n+nf}{operator} \PYG{p}{()} \PYG{p}{(}\PYG{k}{const} \PYG{n}{node} \PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{,} \PYG{k}{const} \PYG{n}{node} \PYG{o}{\PYGZam{}}\PYG{n}{b}\PYG{p}{)} \PYG{k}{const} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{x} \PYG{o}{==} \PYG{n}{b}\PYG{p}{.}\PYG{n}{x}\PYG{p}{)} \PYG{o}{?} \PYG{n}{a}\PYG{p}{.}\PYG{n}{y} \PYG{o}{\PYGZlt{}} \PYG{n}{b}\PYG{p}{.}\PYG{n+nl}{y} \PYG{p}{:} \PYG{n}{a}\PYG{p}{.}\PYG{n}{x} \PYG{o}{\PYGZlt{}} \PYG{n}{b}\PYG{p}{.}\PYG{n}{x}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{n}{node}\PYG{p}{,} \PYG{k+kt}{int}\PYG{p}{,} \PYG{n}{cmp}\PYG{o}{\PYGZgt{}} \PYG{n}{mp}\PYG{p}{;}
+\end{Verbatim}

@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{namespace} \PYG{n}{hungarian}\PYG{p}{\PYGZob{}}
+    \PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}} \PYG{n}{G}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+    \PYG{k+kt}{int} \PYG{n}{vis}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];}
+    \PYG{k+kt}{int} \PYG{n}{p}\PYG{p}{[}\PYG{n}{maxn}\PYG{p}{];} \PYG{c+c1}{//p[right]=left}
+    \PYG{k+kt}{bool} \PYG{n+nf}{match}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{G}\PYG{p}{[}\PYG{n}{u}\PYG{p}{].}\PYG{n}{size}\PYG{p}{();}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+            \PYG{k+kt}{int} \PYG{n}{v}\PYG{o}{=}\PYG{n}{G}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{v}\PYG{p}{])} \PYG{k}{continue}\PYG{p}{;}
+            \PYG{n}{vis}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}
+            \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{p}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{o}{||}\PYG{n}{match}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]))\PYGZob{}}
+                \PYG{n}{p}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{o}{=}\PYG{n}{u}\PYG{p}{;} \PYG{k}{return} \PYG{n+nb}{true}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{return} \PYG{n+nb}{false}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k+kt}{int} \PYG{n+nf}{hungarian}\PYG{p}{()\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{cnt}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{memset}\PYG{p}{(}\PYG{n}{vis}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{k}{sizeof}\PYG{p}{(}\PYG{n}{vis}\PYG{p}{));}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{match}\PYG{p}{(}\PYG{n}{i}\PYG{p}{))\PYGZob{}}
+                \PYG{o}{++}\PYG{n}{cnt}\PYG{p}{;}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{return} \PYG{n}{cnt}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

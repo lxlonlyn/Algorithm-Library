@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{dp}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{kl}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{kr}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{mid}\PYG{o}{=}\PYG{p}{(}\PYG{n}{l}\PYG{o}{+}\PYG{n}{r}\PYG{p}{)}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{k}\PYG{o}{=}\PYG{n}{kl}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{n}{kl}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{min}\PYG{p}{(}\PYG{n}{kr}\PYG{p}{,}\PYG{n}{mid}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{);}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{w}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{n}{mid}\PYG{p}{)}\PYG{o}{\PYGZlt{}}\PYG{n}{w}\PYG{p}{(}\PYG{n}{k}\PYG{p}{,}\PYG{n}{mid}\PYG{p}{))} \PYG{n}{i}\PYG{o}{=}\PYG{n}{k}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{f}\PYG{p}{[}\PYG{n}{mid}\PYG{p}{]}\PYG{o}{=}\PYG{n}{w}\PYG{p}{(}\PYG{n}{k}\PYG{p}{,}\PYG{n}{mid}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{l}\PYG{o}{\PYGZlt{}}\PYG{n}{mid}\PYG{p}{)} \PYG{n}{dp}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,}\PYG{n}{mid}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{kl}\PYG{p}{,}\PYG{n}{k}\PYG{p}{);}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{r}\PYG{o}{\PYGZgt{}}\PYG{n}{mid}\PYG{p}{)} \PYG{n}{dp}\PYG{p}{(}\PYG{n}{mid}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{r}\PYG{p}{,}\PYG{n}{k}\PYG{p}{,}\PYG{n}{k\PYGZus{}r}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

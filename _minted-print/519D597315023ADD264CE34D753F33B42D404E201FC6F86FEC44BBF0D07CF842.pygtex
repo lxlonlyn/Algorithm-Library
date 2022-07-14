@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{prim}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{u}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{sum\PYGZus{}mst} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//initial}
+        \PYG{n}{lowcost}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Map}\PYG{p}{[}\PYG{n}{u}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+        \PYG{n}{mst}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{u}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{mst}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{i} \PYG{o}{\PYGZlt{}} \PYG{n}{n}\PYG{p}{;} \PYG{n}{i}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{minn} \PYG{o}{=} \PYG{n}{INF}\PYG{p}{;}
+        \PYG{k+kt}{int} \PYG{n}{v} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+        \PYG{c+c1}{//find the minest mst in lowcost}
+        \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if}\PYG{p}{(}\PYG{n}{mst}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{lowcost}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{\PYGZlt{}} \PYG{n}{minn}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{v} \PYG{o}{=} \PYG{n}{j}\PYG{p}{;} \PYG{n}{minn} \PYG{o}{=} \PYG{n}{lowcost}\PYG{p}{[}\PYG{n}{j}\PYG{p}{];}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if}\PYG{p}{(}\PYG{n}{v} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}d \PYGZpc{}d \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{mst}\PYG{p}{[}\PYG{n}{v}\PYG{p}{],} \PYG{n}{v}\PYG{p}{,} \PYG{n}{lowcost}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]);}
+            \PYG{c+c1}{//output path}
+            \PYG{n}{mst}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+            \PYG{n}{sum\PYGZus{}mst} \PYG{o}{+=} \PYG{n}{lowcost}\PYG{p}{[}\PYG{n}{v}\PYG{p}{];}
+            \PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{j} \PYG{o}{\PYGZlt{}=} \PYG{n}{n}\PYG{p}{;} \PYG{n}{j}\PYG{o}{++}\PYG{p}{)\PYGZob{}}
+                \PYG{k}{if}\PYG{p}{(}\PYG{n}{mst}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{!=} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1} \PYG{o}{\PYGZam{}\PYGZam{}} \PYG{n}{lowcost}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{\PYGZgt{}} \PYG{n}{Map}\PYG{p}{[}\PYG{n}{v}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])\PYGZob{}}
+                    \PYG{n}{lowcost}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{Map}\PYG{p}{[}\PYG{n}{v}\PYG{p}{][}\PYG{n}{j}\PYG{p}{];}
+                    \PYG{n}{mst}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]} \PYG{o}{=} \PYG{n}{v}\PYG{p}{;}
+                \PYG{p}{\PYGZcb{}}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}weight of mst is \PYGZpc{}d}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{sum\PYGZus{}mst}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

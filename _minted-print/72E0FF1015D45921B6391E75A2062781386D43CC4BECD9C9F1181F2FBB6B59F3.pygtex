@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{InsertNode}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+    \PYG{o}{++}\PYG{n}{n}\PYG{p}{;} \PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{p}{]}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{];} \PYG{k+kt}{int} \PYG{n}{pos}\PYG{o}{=}\PYG{n}{n}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{31}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZgt{}\PYGZgt{}}\PYG{n}{i}\PYG{p}{))} \PYG{k}{continue}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{p}{].}\PYG{n}{d}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])\PYGZob{}}
+            \PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{p}{].}\PYG{n}{d}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{x}\PYG{p}{;}
+            \PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{p}{].}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{pos}\PYG{p}{;}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{p}{].}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{n}{pos}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{swap}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{p}{].}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{n}{pos}\PYG{p}{);}
+            \PYG{n}{swap}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{p}{].}\PYG{n}{d}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],}\PYG{n}{x}\PYG{p}{);}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{n}{x}\PYG{o}{\PYGZca{}=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{n}\PYG{p}{].}\PYG{n}{d}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{int} \PYG{n+nf}{QueryAns}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{ql}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{qr}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{res}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{31}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{qr}\PYG{p}{].}\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZgt{}=}\PYG{n}{ql}\PYG{p}{)\PYGZob{}}
+            \PYG{n}{res}\PYG{o}{=}\PYG{n}{max}\PYG{p}{(}\PYG{n}{res}\PYG{p}{,}\PYG{n}{res}\PYG{o}{\PYGZca{}}\PYG{n}{a}\PYG{p}{[}\PYG{n}{qr}\PYG{p}{].}\PYG{n}{d}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{res}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{const} \PYG{n}{ll} \PYG{n}{base}\PYG{o}{=}\PYG{l+m+mi}{131}\PYG{p}{;}
+\PYG{k}{const} \PYG{n}{ll} \PYG{n}{mod}\PYG{o}{=}\PYG{l+m+mi}{1610612741}\PYG{p}{;}\PYG{c+c1}{//or 1e9+7}
+\PYG{c+c1}{//do hash}
+\PYG{k}{for} \PYG{p}{(}\PYG{n}{rg} \PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{s}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{n}{read}\PYG{p}{();} 
+    \PYG{n}{hs}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{=}\PYG{p}{(}\PYG{n}{hs}\PYG{p}{[}\PYG{n}{i}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{*}\PYG{n}{base}\PYG{o}{+}\PYG{n}{s}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{//get hash}
+\PYG{n}{il} \PYG{n}{ll} \PYG{n}{geth}\PYG{p}{(}\PYG{n}{un} \PYG{n}{ll} \PYG{n}{a}\PYG{p}{[],}\PYG{k+kt}{int} \PYG{n}{l}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{r}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{return} \PYG{p}{((}\PYG{n}{a}\PYG{p}{[}\PYG{n}{r}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{a}\PYG{p}{[}\PYG{n}{l}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{*}\PYG{n}{p}\PYG{p}{[}\PYG{n}{r}\PYG{o}{\PYGZhy{}}\PYG{n}{l}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{o}{+}\PYG{n}{mod}\PYG{p}{)}\PYG{o}{\PYGZpc{}}\PYG{n}{mod}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{struct} \PYG{n}{Node}\PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{n}{y}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k}{struct} \PYG{n}{NodeHash} \PYG{p}{\PYGZob{}}
+  \PYG{k}{static} \PYG{k+kt}{uint64\PYGZus{}t} \PYG{n}{splitmix64}\PYG{p}{(}\PYG{k+kt}{uint64\PYGZus{}t} \PYG{n}{x}\PYG{p}{)} \PYG{p}{\PYGZob{}} \PYG{c+c1}{//很复杂的式子}
+    \PYG{n}{x} \PYG{o}{+=} \PYG{l+m+mh}{0x9e3779b97f4a7c15}\PYG{p}{;}
+    \PYG{n}{x} \PYG{o}{=} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZca{}} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{l+m+mi}{30}\PYG{p}{))} \PYG{o}{*} \PYG{l+m+mh}{0xbf58476d1ce4e5b9}\PYG{p}{;}
+    \PYG{n}{x} \PYG{o}{=} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZca{}} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{l+m+mi}{27}\PYG{p}{))} \PYG{o}{*} \PYG{l+m+mh}{0x94d049bb133111eb}\PYG{p}{;}
+    \PYG{k}{return} \PYG{n}{x} \PYG{o}{\PYGZca{}} \PYG{p}{(}\PYG{n}{x} \PYG{o}{\PYGZgt{}\PYGZgt{}} \PYG{l+m+mi}{31}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+  \PYG{k+kt}{size\PYGZus{}t} \PYG{k}{operator}\PYG{p}{()(}\PYG{n}{Type} \PYG{n}{\PYGZus{}a}\PYG{p}{)} \PYG{k}{const} \PYG{p}{\PYGZob{}} 
+    \PYG{k}{static} \PYG{k}{const} \PYG{k+kt}{uint64\PYGZus{}t} \PYG{n}{FIXED\PYGZus{}RANDOM} \PYG{o}{=}
+        \PYG{n}{chrono}\PYG{o}{::}\PYG{n}{steady\PYGZus{}clock}\PYG{o}{::}\PYG{n}{now}\PYG{p}{().}\PYG{n}{time\PYGZus{}since\PYGZus{}epoch}\PYG{p}{().}\PYG{n}{count}\PYG{p}{();}
+    \PYG{c+c1}{//加入未确定时间因素更难hack}
+    \PYG{k}{return} \PYG{n+nf}{splitmix64}\PYG{p}{(}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{x}\PYG{o}{*}\PYG{l+m+mi}{233}\PYG{o}{+}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{y} \PYG{o}{+} \PYG{n}{FIXED\PYGZus{}RANDOM}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{};}
+\PYG{k}{struct} \PYG{n}{NodeEqual}\PYG{p}{\PYGZob{}}
+    \PYG{k+kt}{bool} \PYG{k}{operator} \PYG{p}{()} \PYG{p}{\PYGZob{}}\PYG{k}{const} \PYG{n}{Node}\PYG{o}{\PYGZam{}} \PYG{n}{\PYGZus{}a}\PYG{p}{,}\PYG{k}{const} \PYG{n}{Node}\PYG{o}{\PYGZam{}} \PYG{n}{\PYGZus{}b}\PYG{p}{\PYGZcb{}} \PYG{k}{const} \PYG{p}{\PYGZob{}}
+        \PYG{k}{return} \PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{x}\PYG{o}{==}\PYG{n}{\PYGZus{}b}\PYG{p}{.}\PYG{n}{x}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{\PYGZus{}a}\PYG{p}{.}\PYG{n}{y}\PYG{o}{==}\PYG{n}{\PYGZus{}b}\PYG{p}{.}\PYG{n}{y}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

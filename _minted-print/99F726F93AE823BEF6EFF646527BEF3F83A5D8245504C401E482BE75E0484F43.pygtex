@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{int} \PYG{n+nf}{lowbit}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{return} \PYG{n}{x}\PYG{o}{\PYGZam{}}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void} \PYG{n+nf}{add\PYGZus{}val}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{pos}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{val}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{while} \PYG{p}{(}\PYG{n}{pos}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{tree}\PYG{p}{[}\PYG{n}{pos}\PYG{p}{]}\PYG{o}{+=}\PYG{n}{val}\PYG{p}{;}
+        \PYG{n}{pos}\PYG{o}{+=}\PYG{n}{lowbit}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{int} \PYG{n+nf}{get\PYGZus{}sum}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{pos}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{tmp}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{while} \PYG{p}{(}\PYG{n}{pos}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{tmp}\PYG{o}{+=}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{pos}\PYG{p}{];}
+        \PYG{n}{pos}\PYG{o}{\PYGZhy{}=}\PYG{n}{lowbit}\PYG{p}{(}\PYG{n}{pos}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{tmp}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kt}{void} \PYG{n+nf}{add}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{z}\PYG{p}{)\PYGZob{}} 
+    \PYG{k+kt}{int} \PYG{n}{memo\PYGZus{}y}\PYG{o}{=}\PYG{n}{y}\PYG{p}{;}
+    \PYG{k}{while}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{y}\PYG{o}{=}\PYG{n}{memo\PYGZus{}y}\PYG{p}{;}
+        \PYG{k}{while}\PYG{p}{(}\PYG{n}{y}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{)}
+            \PYG{n}{tree}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{y}\PYG{p}{]}\PYG{o}{+=} \PYG{n}{z}\PYG{p}{,}\PYG{n}{y}\PYG{o}{+=}\PYG{n}{y}\PYG{o}{\PYGZam{}\PYGZhy{}}\PYG{n}{y}\PYG{p}{;}
+        \PYG{n}{x}\PYG{o}{+=}\PYG{n}{x}\PYG{o}{\PYGZam{}\PYGZhy{}}\PYG{n}{x}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void} \PYG{n+nf}{range\PYGZus{}add}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{xa}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{ya}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{xb}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{yb}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{z}\PYG{p}{)\PYGZob{}}
+    \PYG{n}{add}\PYG{p}{(}\PYG{n}{xa}\PYG{p}{,}\PYG{n}{ya}\PYG{p}{,}\PYG{n}{z}\PYG{p}{);}
+    \PYG{n}{add}\PYG{p}{(}\PYG{n}{xa}\PYG{p}{,}\PYG{n}{yb}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{n}{z}\PYG{p}{);}
+    \PYG{n}{add}\PYG{p}{(}\PYG{n}{xb}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{ya}\PYG{p}{,}\PYG{o}{\PYGZhy{}}\PYG{n}{z}\PYG{p}{);}
+    \PYG{n}{add}\PYG{p}{(}\PYG{n}{xb}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{yb}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{z}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void} \PYG{n+nf}{ask}\PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{x}\PYG{p}{,}\PYG{k+kt}{int} \PYG{n}{y}\PYG{p}{)\PYGZob{}}
+    \PYG{k+kt}{int} \PYG{n}{res}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{memo\PYGZus{}y}\PYG{o}{=}\PYG{n}{y}\PYG{p}{;}
+    \PYG{k}{while}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{y}\PYG{o}{=}\PYG{n}{memo\PYGZus{}y}\PYG{p}{;}
+        \PYG{k}{while}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}
+            \PYG{n}{res}\PYG{o}{+=}\PYG{n}{tree}\PYG{p}{[}\PYG{n}{x}\PYG{p}{][}\PYG{n}{y}\PYG{p}{],}\PYG{n}{y}\PYG{o}{\PYGZhy{}=}\PYG{n}{y}\PYG{o}{\PYGZam{}\PYGZhy{}}\PYG{n}{y}\PYG{p}{;}
+        \PYG{n}{x}\PYG{o}{\PYGZhy{}=}\PYG{n}{x}\PYG{o}{\PYGZam{}\PYGZhy{}}\PYG{n}{x}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

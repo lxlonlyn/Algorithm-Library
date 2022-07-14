@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{unordered\PYGZus{}map}\PYG{o}{\PYGZlt{}}\PYG{n}{ll}\PYG{p}{,}\PYG{n}{ll}\PYG{o}{\PYGZgt{}} \PYG{n}{mp}\PYG{p}{;} \PYG{c+c1}{//if use map then add a log}
+\PYG{n}{ll} \PYG{n+nf}{bsgs}\PYG{p}{(}\PYG{n}{ll} \PYG{n}{a}\PYG{p}{,}\PYG{n}{ll} \PYG{n}{b}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//a\PYGZca{}x=b(\PYGZpc{}p)}
+    \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{a}\PYG{p}{)\PYGZob{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{b}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{k}{else} \PYG{k}{if} \PYG{p}{(}\PYG{n}{b}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{k}{else} \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{mp}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{();}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{b}\PYG{o}{==}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{n}{ll} \PYG{n}{ans}\PYG{o}{=\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{m}\PYG{o}{=}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{p}\PYG{p}{)}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{s}\PYG{o}{=}\PYG{n}{b}\PYG{p}{;}
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{ll} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{m}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{mp}\PYG{p}{[}\PYG{n}{s}\PYG{p}{]}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;} \PYG{n}{s}\PYG{o}{=}\PYG{n}{s}\PYG{o}{*}\PYG{n}{a}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n}{ll} \PYG{n}{tmp}\PYG{o}{=}\PYG{n}{ksm}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{m}\PYG{p}{);} \PYG{n}{s}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;} 
+    \PYG{k}{for} \PYG{p}{(}\PYG{n}{ll} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{m}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{s}\PYG{o}{=}\PYG{n}{s}\PYG{o}{*}\PYG{n}{tmp}\PYG{o}{\PYGZpc{}}\PYG{n}{p}\PYG{p}{;}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{mp}\PYG{p}{.}\PYG{n}{count}\PYG{p}{(}\PYG{n}{s}\PYG{p}{))\PYGZob{}}
+            \PYG{n}{ans}\PYG{o}{=}\PYG{n}{i}\PYG{o}{*}\PYG{n}{m}\PYG{o}{\PYGZhy{}}\PYG{n}{mp}\PYG{p}{[}\PYG{n}{s}\PYG{p}{];}
+            \PYG{k}{break}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{return} \PYG{n}{ans}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}

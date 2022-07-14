@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}define I\PYGZus{}int int }
+\PYG{k+kr}{inline} \PYG{n}{I\PYGZus{}int} \PYG{n+nf}{read}\PYG{p}{()\PYGZob{}}
+  \PYG{n}{I\PYGZus{}int} \PYG{n}{x}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{f}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{k+kt}{char} \PYG{n}{c}\PYG{o}{=}\PYG{n}{getchar}\PYG{p}{();}
+  \PYG{k}{while}\PYG{p}{(}\PYG{n}{c}\PYG{o}{\PYGZlt{}}\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{o}{||}\PYG{n}{c}\PYG{o}{\PYGZgt{}}\PYG{l+s+sc}{\PYGZsq{}9\PYGZsq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}\PYG{k}{if}\PYG{p}{(}\PYG{n}{c}\PYG{o}{==}\PYG{l+s+sc}{\PYGZsq{}\PYGZhy{}\PYGZsq{}}\PYG{p}{)} \PYG{n}{f}\PYG{o}{=\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;} \PYG{n}{c}\PYG{o}{=}\PYG{n}{getchar}\PYG{p}{();\PYGZcb{}} 
+  \PYG{k}{while}\PYG{p}{(}\PYG{n}{c}\PYG{o}{\PYGZgt{}=}\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{c}\PYG{o}{\PYGZlt{}=}\PYG{l+s+sc}{\PYGZsq{}9\PYGZsq{}}\PYG{p}{)} \PYG{p}{\PYGZob{}}\PYG{n}{x}\PYG{o}{=}\PYG{n}{x}\PYG{o}{*}\PYG{l+m+mi}{10}\PYG{o}{+}\PYG{n}{c}\PYG{o}{\PYGZhy{}}\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;} \PYG{n}{c}\PYG{o}{=}\PYG{n}{getchar}\PYG{p}{();\PYGZcb{}} 
+  \PYG{k}{return} \PYG{n}{x}\PYG{o}{*}\PYG{n}{f}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{char} \PYG{n}{F}\PYG{p}{[}\PYG{l+m+mi}{200}\PYG{p}{];}
+\PYG{k+kr}{inline} \PYG{k+kt}{void} \PYG{n+nf}{write}\PYG{p}{(}\PYG{n}{I\PYGZus{}int} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+  \PYG{n}{I\PYGZus{}int} \PYG{n}{tmp}\PYG{o}{=}\PYG{n}{x}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{o}{?}\PYG{n+nl}{x}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{n}{x}\PYG{p}{;}
+  \PYG{k}{if}\PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{n}{putchar}\PYG{p}{(}\PYG{l+s+sc}{\PYGZsq{}\PYGZhy{}\PYGZsq{}}\PYG{p}{);}
+  \PYG{k+kt}{int} \PYG{n}{cnt}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+  \PYG{k}{while}\PYG{p}{(}\PYG{n}{tmp}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}}
+     \PYG{n}{F}\PYG{p}{[}\PYG{n}{cnt}\PYG{o}{++}\PYG{p}{]}\PYG{o}{=}\PYG{n}{tmp}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{10}\PYG{o}{+}\PYG{l+s+sc}{\PYGZsq{}0\PYGZsq{}}\PYG{p}{;}
+     \PYG{n}{tmp}\PYG{o}{/=}\PYG{l+m+mi}{10}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{}}
+    \PYG{k}{while}\PYG{p}{(}\PYG{n}{cnt}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{n}{putchar}\PYG{p}{(}\PYG{n}{F}\PYG{p}{[}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{cnt}\PYG{p}{]);}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+cp}{\PYGZsh{}undef I\PYGZus{}int}
+\end{Verbatim}

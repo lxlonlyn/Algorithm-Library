@@ -1,0 +1,55 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{const} \PYG{k+kt}{double} \PYG{n}{eps}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}9}\PYG{p}{;}
+\PYG{k+kt}{double} \PYG{n+nf}{abss}\PYG{p}{(}\PYG{k+kt}{double} \PYG{n}{x}\PYG{p}{)\PYGZob{}}
+    \PYG{k}{return} \PYG{p}{(}\PYG{n}{x}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{?\PYGZhy{}}\PYG{n+nl}{x}\PYG{p}{:}\PYG{n}{x}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}} 
+\PYG{k+kt}{int} \PYG{n+nf}{check}\PYG{p}{()\PYGZob{}} 
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{tot}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{o}{!}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{j}\PYG{p}{])} \PYG{n}{tot}\PYG{o}{++}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{tot}\PYG{o}{==}\PYG{n}{n}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{o}{\PYGZgt{}}\PYG{n}{eps}\PYG{p}{)} \PYG{n}{noans}\PYG{o}{=}\PYG{n+nb}{true}\PYG{p}{;} 
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{tot}\PYG{o}{==}\PYG{n}{n}\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{o}{\PYGZlt{}=}\PYG{n}{eps}\PYG{p}{)} \PYG{n}{manyans}\PYG{o}{=}\PYG{n+nb}{true}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{noans}\PYG{p}{)} \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{;} 
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{manyans}\PYG{p}{)} \PYG{k}{return} \PYG{l+m+mi}{0}\PYG{p}{;}
+    \PYG{k}{return} \PYG{l+m+mi}{1}\PYG{p}{;}
+    \PYG{c+cm}{/*}
+\PYG{c+cm}{    \PYGZhy{}1:no answer,0:infinity answer,1:only one answer.}
+\PYG{c+cm}{    judge no answer before infinity answer}
+\PYG{c+cm}{    */}
+\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void} \PYG{n+nf}{gauss}\PYG{p}{()\PYGZob{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{k+kt}{int} \PYG{n}{r}\PYG{o}{=}\PYG{n}{i}\PYG{p}{;}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{abss}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{i}\PYG{p}{])}\PYG{o}{\PYGZgt{}}\PYG{n}{abss}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{r}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]))} \PYG{n}{r}\PYG{o}{=}\PYG{n}{j}\PYG{p}{;}
+        \PYG{p}{\PYGZcb{}}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{r}\PYG{o}{!=}\PYG{n}{i}\PYG{p}{)} \PYG{n}{swap}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{r}\PYG{p}{],}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{abss}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{i}\PYG{p}{])}\PYG{o}{\PYGZlt{}=}\PYG{n}{eps}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+        \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{j}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{j}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{j}\PYG{p}{)\PYGZob{}}
+            \PYG{k}{if} \PYG{p}{(}\PYG{n}{i}\PYG{o}{==}\PYG{n}{j}\PYG{p}{)} \PYG{k}{continue}\PYG{p}{;}
+            \PYG{k+kt}{double} \PYG{n}{tmp}\PYG{o}{=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{i}\PYG{p}{]}\PYG{o}{/}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+            \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{k}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{k}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{o}{++}\PYG{n}{k}\PYG{p}{)\PYGZob{}}
+                \PYG{n}{a}\PYG{p}{[}\PYG{n}{j}\PYG{p}{][}\PYG{n}{k}\PYG{p}{]}\PYG{o}{\PYGZhy{}=}\PYG{n}{tmp}\PYG{o}{*}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{k}\PYG{p}{];}
+            \PYG{p}{\PYGZcb{}}
+        \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k+kt}{int} \PYG{n}{flag}\PYG{o}{=}\PYG{n}{check}\PYG{p}{();}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{flag}\PYG{o}{==\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//no answer}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZhy{}1\PYGZdq{}}\PYG{p}{);} \PYG{k}{return}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{if} \PYG{p}{(}\PYG{n}{flag}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{)\PYGZob{}} \PYG{c+c1}{//infinity answer}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}0\PYGZdq{}}\PYG{p}{);} \PYG{k}{return}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{n}{n}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZgt{}=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{/=}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{i}\PYG{p}{];}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{k}{for} \PYG{p}{(}\PYG{k+kt}{int} \PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}=}\PYG{n}{n}\PYG{p}{;}\PYG{o}{++}\PYG{n}{i}\PYG{p}{)\PYGZob{}}
+        \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}x\PYGZpc{}d=\PYGZdq{}}\PYG{p}{,}\PYG{n}{i}\PYG{p}{);}
+        \PYG{k}{if} \PYG{p}{(}\PYG{n}{abss}\PYG{p}{(}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{])}\PYG{o}{\PYGZlt{}=}\PYG{n}{eps}\PYG{p}{)} \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}0}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{);}
+        \PYG{k}{else} \PYG{n}{printf}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}\PYGZpc{}.2lf}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s}{\PYGZdq{}}\PYG{p}{,}\PYG{n}{a}\PYG{p}{[}\PYG{n}{i}\PYG{p}{][}\PYG{n}{n}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]);}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
